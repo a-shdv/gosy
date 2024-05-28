@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\a-shdv\\Desktop\\gosy\\op\\department\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{37DDB2CD-7BBE-45FC-9AF5-108219D5A2EE}|department\\department.vcxproj|C:\\Users\\a-shdv\\Desktop\\gosy\\op\\department\\department\\department.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{37DDB2CD-7BBE-45FC-9AF5-108219D5A2EE}|department\\department.vcxproj|solutionrelative:department\\department.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "department.cpp",
+              "DocumentMoniker": "C:\\Users\\a-shdv\\Desktop\\gosy\\op\\department\\department\\department.cpp",
+              "RelativeDocumentMoniker": "department\\department.cpp",
+              "ToolTip": "C:\\Users\\a-shdv\\Desktop\\gosy\\op\\department\\department\\department.cpp",
+              "RelativeToolTip": "department\\department.cpp",
+              "ViewState": "AQIAALYAAAAAAAAAAAAcwL8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-28T17:09:26.17Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
