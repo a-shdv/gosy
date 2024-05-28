@@ -1,6 +1,7 @@
 package org.example;
 
 import org.example.model.Person;
+import org.example.structure.graph.Dijkstra;
 import org.example.structure.graph.Graph;
 import org.example.structure.hashtable.HashTableChainMethod;
 import org.example.structure.hashtable.HashTableDoubleHash;
@@ -15,6 +16,18 @@ import org.example.util.sort.*;
 import java.util.Arrays;
 
 public class Main {
+
+    private static void dijkstra() {
+        Dijkstra graph = new Dijkstra(5);
+        graph.addEdge(0, 1, 9);
+        graph.addEdge(0, 2, 6);
+        graph.addEdge(0, 3, 5);
+        graph.addEdge(0, 4, 3);
+        graph.addEdge(2, 1, 2);
+        graph.addEdge(2, 3, 4);
+
+        graph.dijkstra(0);
+    }
 
     private static void graph() {
         // Create a new graph
@@ -289,6 +302,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
+        dijkstra();
         hashTableChainMethod();
         hashTableDoubleHash();
         hashTableLineProbing();

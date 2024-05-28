@@ -4,49 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5ca5dbe-1265-4834-968e-182b3df5e1a0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/aisd/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aisd/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aisd/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aisd/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aisd/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aisd/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aisd/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/model/Person.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/structure/graph/Graph.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/structure/graph/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/structure/hashtable/HashTableChainMethod.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/structure/hashtable/HashTableDoubleHash.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/structure/hashtable/HashTableLineProbing.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/structure/hashtable/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/structure/linkedlist/DoubleLinkedList.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/structure/linkedlist/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/structure/linkedlist/SingleLinkedList.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/structure/tree/BinaryHeap.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/structure/tree/BinaryTree.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/structure/tree/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/util/ArrayUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/util/sort/BubbleSortUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/util/sort/CountingSortUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/util/sort/GnomeSortUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/util/sort/MergeSortUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/util/sort/QuickSortUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/util/sort/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/util/sort/RadixSortUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/util/sort/gpt/BottomUpMergeSortUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/util/sort/gpt/BubbleSortUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/util/sort/gpt/CountingSortUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/util/sort/gpt/GnomeSortUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/util/sort/gpt/HeapSortUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/util/sort/gpt/InsertionSortUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/util/sort/gpt/MergeSortUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/util/sort/gpt/QuickSortUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/util/sort/gpt/RadixSortUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/util/sort/gpt/SelectionSortUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/util/sort/gpt/ShellSortUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/util/sort/gpt/TournamentSortUtils.java" beforeDir="false" />
-    </list>
+    <list default="true" id="e5ca5dbe-1265-4834-968e-182b3df5e1a0" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -150,7 +108,7 @@
       <workItem from="1716905448406" duration="38000" />
       <workItem from="1716905504421" duration="118000" />
       <workItem from="1716905643333" duration="22000" />
-      <workItem from="1716905688603" duration="1005000" />
+      <workItem from="1716905688603" duration="1757000" />
     </task>
     <servers />
   </component>
