@@ -42,7 +42,6 @@ public class Graph {
         }
     }
 
-
     // List to store vertices
     private List<Vertex> vertices = new ArrayList<>();
 
@@ -123,6 +122,52 @@ public class Graph {
                     }
                 }
             }
+        }
+    }
+
+    // Method to generate and print adjacency list
+    public void printAdjacencyList() {
+        for (Vertex vertex : vertices) {
+            System.out.print("Vertex " + vertex.getId() + " -> ");
+            for (Edge edge : vertex.getEdges()) {
+                System.out.print(edge.getVertex().getId() + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    // Method to generate and print adjacency matrix
+    public void printAdjacencyMatrix() {
+        int[][] adjacencyMatrix = new int[vertices.size()][vertices.size()];
+        for (Vertex vertex : vertices) {
+            for (Edge edge : vertex.getEdges()) {
+                adjacencyMatrix[vertex.getId()][edge.getVertex().getId()] = 1;
+            }
+        }
+
+        for (int i = 0; i < vertices.size(); i++) {
+            for (int j = 0; j < vertices.size(); j++) {
+                System.out.print(adjacencyMatrix[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    // Method to generate and print incidence matrix
+    public void printIncidenceMatrix() {
+        int[][] incidenceMatrix = new int[vertices.size()][vertices.size()];
+        for (Vertex vertex : vertices) {
+            for (Edge edge : vertex.getEdges()) {
+                incidenceMatrix[vertex.getId()][edge.getVertex().getId()] = 1;
+                incidenceMatrix[edge.getVertex().getId()][vertex.getId()] = 1;
+            }
+        }
+
+        for (int i = 0; i < vertices.size(); i++) {
+            for (int j = 0; j < vertices.size(); j++) {
+                System.out.print(incidenceMatrix[i][j] + " ");
+            }
+            System.out.println();
         }
     }
 }

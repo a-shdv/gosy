@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e5ca5dbe-1265-4834-968e-182b3df5e1a0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/aisd/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aisd/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aisd/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aisd/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aisd/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aisd/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aisd/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/model/Person.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/structure/graph/Graph.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/structure/graph/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/structure/hashtable/HashTableChainMethod.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/structure/hashtable/HashTableDoubleHash.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/structure/hashtable/HashTableLineProbing.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/structure/hashtable/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/structure/linkedlist/DoubleLinkedList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/structure/linkedlist/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/structure/linkedlist/SingleLinkedList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/structure/tree/BinaryHeap.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/structure/tree/BinaryTree.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/structure/tree/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/util/ArrayUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/util/sort/BubbleSortUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/util/sort/CountingSortUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/util/sort/GnomeSortUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/util/sort/MergeSortUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/util/sort/QuickSortUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/util/sort/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/util/sort/RadixSortUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/util/sort/gpt/BottomUpMergeSortUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/util/sort/gpt/BubbleSortUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/util/sort/gpt/CountingSortUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/util/sort/gpt/GnomeSortUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/util/sort/gpt/HeapSortUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/util/sort/gpt/InsertionSortUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/util/sort/gpt/MergeSortUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/util/sort/gpt/QuickSortUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/util/sort/gpt/RadixSortUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/util/sort/gpt/SelectionSortUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/util/sort/gpt/ShellSortUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aisd/src/main/java/org/example/util/sort/gpt/TournamentSortUtils.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin Class" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2h5eK4859m5iFEMhkMHrZ64LQ7m" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\a-shdv\Desktop\gosy\aisd\screenshots" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.example.util" />
+      <recent name="org.example.sorts" />
+      <recent name="org.example" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.Main" />
+      <module name="aisd" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e5ca5dbe-1265-4834-968e-182b3df5e1a0" name="Changes" comment="" />
+      <created>1716888299461</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1716888299461</updated>
+      <workItem from="1716888300629" duration="16275000" />
+      <workItem from="1716905329472" duration="30000" />
+      <workItem from="1716905448406" duration="38000" />
+      <workItem from="1716905504421" duration="118000" />
+      <workItem from="1716905643333" duration="22000" />
+      <workItem from="1716905688603" duration="1005000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="14" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

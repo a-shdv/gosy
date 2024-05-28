@@ -5,6 +5,7 @@ import org.example.structure.graph.Graph;
 import org.example.structure.hashtable.HashTableChainMethod;
 import org.example.structure.hashtable.HashTableDoubleHash;
 import org.example.structure.hashtable.HashTableLineProbing;
+import org.example.structure.linkedlist.CircularLinkedList;
 import org.example.structure.linkedlist.DoubleLinkedList;
 import org.example.structure.linkedlist.SingleLinkedList;
 import org.example.structure.tree.BinaryHeap;
@@ -14,6 +15,41 @@ import org.example.util.sort.*;
 import java.util.Arrays;
 
 public class Main {
+
+    private static void graph() {
+        // Create a new graph
+        Graph graph = new Graph();
+
+        // Add vertices
+        graph.addVertex(); // Vertex 0
+        graph.addVertex(); // Vertex 1
+        graph.addVertex(); // Vertex 2
+        graph.addVertex(); // Vertex 3
+        graph.addVertex(); // Vertex 4
+
+        // Add edges
+        graph.addEdge(0, 1);
+        graph.addEdge(0, 4);
+        graph.addEdge(1, 2);
+        graph.addEdge(1, 3);
+        graph.addEdge(1, 4);
+        graph.addEdge(2, 3);
+        graph.addEdge(3, 4);
+
+        // Print adjacency list
+        System.out.println("Adjacency List:");
+        graph.printAdjacencyList();
+        System.out.println();
+
+        // Print adjacency matrix
+        System.out.println("Adjacency Matrix:");
+        graph.printAdjacencyMatrix();
+        System.out.println();
+
+        // Print incidence matrix
+        System.out.println("Incidence Matrix:");
+        graph.printIncidenceMatrix();
+    }
 
     private static void hashTableChainMethod() {
         // Create an instance of HashTableChainMethod with size 10
@@ -95,6 +131,19 @@ public class Main {
 
         // Print the hash table again
         hashTable.print();
+    }
+
+    private static void circularLinkedList() {
+        CircularLinkedList list = new CircularLinkedList();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(4);
+        list.display(); // Вывод: 1 2 3 4
+        list.delete(3);
+        list.display(); // Вывод: 1 2 4
+        list.clear();
+        list.display(); // Вывод: Список пуст
     }
 
     private static void doubleLinkedList() {
@@ -190,31 +239,6 @@ public class Main {
         System.out.println(tree.search(20)); // false
     }
 
-    private static void graph() {
-        // Create a graph object
-        Graph graph = new Graph();
-
-        // Add vertices
-        graph.addVertex(); // Vertex 0
-        graph.addVertex(); // Vertex 1
-        graph.addVertex(); // Vertex 2
-        graph.addVertex(); // Vertex 3
-
-        // Add edges
-        graph.addEdge(0, 1);
-        graph.addEdge(0, 2);
-        graph.addEdge(1, 2);
-        graph.addEdge(2, 3);
-
-        // Perform BFS starting from vertex 0
-        System.out.println("BFS:");
-        graph.bfs(0);
-
-        // Perform DFS starting from vertex 0
-        System.out.println("\nDFS:");
-        graph.dfs(0);
-    }
-
     private static void sort() {
         int[] orig = ArrayUtils.fillArray(new int[20_000], -100, 100);
 
@@ -265,14 +289,15 @@ public class Main {
     }
 
     public static void main(String[] args) {
-//        hashTableChainMethod();
-//        hashTableDoubleHash();
-//        hashTableLineProbing();
-//        doubleLinkedList();
-//        singleLinkedList();
-//        binaryHeap();
-//        binaryTree();
+        hashTableChainMethod();
+        hashTableDoubleHash();
+        hashTableLineProbing();
+        doubleLinkedList();
+        singleLinkedList();
+        circularLinkedList();
+        binaryHeap();
+        binaryTree();
         graph();
-//        sort();
+        sort();
     }
 }
