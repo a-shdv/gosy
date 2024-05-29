@@ -3,4 +3,6 @@
     <string name="move_button">Move</string>
     <string name="show_button">Show</string>
     <string name="button_task">Task</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
