@@ -1,0 +1,80 @@
+#header, #footer {
+    min-height: 50px;
+    background-color: #1b1f23;
+    color: white;
+    width: 100vw; /* Растягиваем по ширине окна браузера */
+}
+
+#header a, #footer a {
+    color: white; /* Устанавливаем белый цвет для ссылок */
+    text-decoration: none; /* Убираем подчеркивание */
+    font-weight: bold;
+}
+
+#header {
+    min-height: 50px;
+    background-color: #1b1f23;
+    color: white;
+    width: 100vw; /* Растягиваем по ширине окна браузера */
+    padding-left: 50px; /* Сдвигаем текст влево для некоторого пространства */
+    padding-top: 20px;
+}
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #1b1f23;
+    color: white;
+    text-align: center; /* Выравниваем текст по центру */
+    padding-top: 20px; /* Добавляем отступ сверху */
+    min-height: 50px;
+}
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Делаем минимальную высоту равной высоте окна браузера */
+    margin: 0; /* Убираем отступы */
+}
+
+#wrapper {
+    flex-grow: 1; /* Растягиваем wrapper на всю доступную высоту */
+}
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 100vw; /* Растягиваем по ширине окна браузера */
+}
+
+.card {
+    background-color: #fff;
+    margin: 5px;
+    padding: 5px;
+    font-size: 1.2em;
+    border: 1px solid black;
+    box-shadow: 0 0 5px #00000066;
+    flex-grow: 1;
+}
+
+#main{
+    display: flex;
+    flex-grow: 1;
+}
+
+#mainDiv{
+    flex-grow: 1;
+}
+
+
+th,td {
+    border: 1px solid black;
+}
+
+div{
+    padding: 10px;
+    border:  1px solid black;
+}

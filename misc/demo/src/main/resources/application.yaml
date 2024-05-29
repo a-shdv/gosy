@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: Shadaev AR
+    favicon: /img/favicon.ico
+    styles: /css/styles.css
