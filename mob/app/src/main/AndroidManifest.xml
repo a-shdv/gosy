@@ -13,28 +13,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Mobile"
         tools:targetApi="31">
-
-        <!--Client activity-->
+        <!-- Client activity -->
         <activity
             android:name=".activity.ClientActivity"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.example.mob.activity.ClientActivity" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-        </activity>
-
-        <!--Create client activity-->
+        </activity> <!-- Create client activity -->
         <activity
             android:name=".activity.CreateClientActivity"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.example.mob.activity.CreateClientActivity" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-        </activity>
-
-        <!-- Test activity -->
+        </activity> <!-- Test activity -->
         <activity
             android:name=".activity.TestActivity"
             android:exported="false">
@@ -43,15 +40,33 @@
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-        </activity>
-
-        <!-- Task activity -->
+        </activity> <!-- Auto activity -->
         <activity
             android:name=".activity.AutoActivity"
             android:exported="false">
             <intent-filter>
-                <action android:name="com.example.mob.activity.TaskActivity" />
+                <action android:name="com.example.mob.activity.AutoActivity" />
 
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <!-- Create auto activity -->
+        <activity
+            android:name=".activity.CreateAutoActivity"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.example.mob.activity.CreateAutoActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- Edit auto activity -->
+        <activity
+            android:name=".activity.EditAutoActivity"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.example.mob.activity.EditAutoActivity" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>

@@ -23,7 +23,9 @@ public class ClientActivity extends AppCompatActivity {
     private TableLayout tableLayoutFragment;
     private TableRow selectedRow;
     private Button buttonAddClient;
+    private Button buttonDeleteClient;
     private ClientRepo clientRepo;
+    private int selectedClientId; // Переменная для хранения ID выбранного клиента
 
     @Override
     protected void onResume() {
@@ -40,11 +42,22 @@ public class ClientActivity extends AppCompatActivity {
 
         buttonAddClient = findViewById(R.id.button_add_client);
         buttonAddClient.setOnClickListener(event -> addClientClickListener());
+
+        buttonDeleteClient = findViewById(R.id.button_delete_client);
+        buttonDeleteClient.setOnClickListener(event -> deleteClientClickListener());
     }
 
     private void addClientClickListener() {
         Intent createClientActivity = new Intent(ClientActivity.this, CreateClientActivity.class);
         startActivity(createClientActivity);
+    }
+
+    private void deleteClientClickListener() {
+        if (selectedClientId != 0) {
+            clientRepo.deleteClient(selectedClientId);
+            // После удаления обновляем таблицу
+            fillTable(Arrays.asList("ID", "Name"), clientRepo.findAll());
+        }
     }
 
     private void fillTable(List<String> columns, List<Client> rows) {
@@ -102,6 +115,11 @@ public class ClientActivity extends AppCompatActivity {
 
     private void selectRow(TableRow tableRow) {
         selectedRow = tableRow;
+
+        // Получаем ID клиента из первой ячейки строки таблицы
+        TextView idTextView = (TextView) tableRow.getChildAt(0);
+        selectedClientId = Integer.parseInt(idTextView.getText().toString());
+
         for(int i = 0; i < tableLayoutFragment.getChildCount(); i++){
             View view = tableLayoutFragment.getChildAt(i);
             if (view instanceof TableRow){
@@ -109,6 +127,5 @@ public class ClientActivity extends AppCompatActivity {
             }
         }
         tableRow.setBackgroundColor(Color.parseColor("#FFBB86FC"));
-
     }
 }

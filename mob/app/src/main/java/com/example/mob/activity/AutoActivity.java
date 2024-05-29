@@ -2,36 +2,67 @@ package com.example.mob.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.example.mob.R;
+import com.example.mob.entity.Auto;
+import com.example.mob.repo.AutoRepo;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class AutoActivity extends AppCompatActivity {
+    private AutoRepo autoRepo;
+    private Button buttonAddAuto;
+    private Button buttonEditAuto;
+    private Button buttonDeleteAuto;
     private TableLayout tableLayoutFragment;
     private TableRow selectedRow;
 
     @Override
     protected void onResume() {
         super.onResume();
-        fillTable(Arrays.asList("Дата назначения", "Дата получения", "Имя поставщика"), Arrays.asList("asf", "gfa", "sad"));
+        fillTable(Arrays.asList("ID", "Model", "Client"), autoRepo.findAllAutos());
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_auto);
+
+        autoRepo = new AutoRepo(this);
+
+        buttonAddAuto = findViewById(R.id.button_add_auto);
+        buttonAddAuto.setOnClickListener(event -> addAutoClickListener());
+
+        buttonDeleteAuto = findViewById(R.id.button_delete_auto);
+        buttonDeleteAuto.setOnClickListener(event -> deleteAutoClickListener());
     }
 
-    private void fillTable(List<String> columns, List<String> rows) {
+    private void addAutoClickListener() {
+        Intent createAutoActivity = new Intent(AutoActivity.this, CreateAutoActivity.class);
+        startActivity(createAutoActivity);
+    }
+
+    private void deleteAutoClickListener() {
+        if (selectedRow != null) {
+            TextView idTextView = (TextView) selectedRow.getChildAt(0);
+            int autoId = Integer.parseInt(idTextView.getText().toString());
+            autoRepo.deleteAuto(autoId);
+            // After deleting, you may want to refresh the table
+            fillTable(Arrays.asList("ID", "Model", "Client"), autoRepo.findAllAutos());
+        }
+    }
+
+    private void fillTable(List<String> columns, List<Auto> rows) {
         tableLayoutFragment = findViewById(R.id.table_layout_fragment);
         tableLayoutFragment.removeAllViews();
         initColumns(tableLayoutFragment, columns);
@@ -53,15 +84,15 @@ public class AutoActivity extends AppCompatActivity {
         tableLayout.addView(tableColumns);
     }
 
-    private void initRows(TableLayout tableLayout, List<String> rows) {
-        for (String row : rows) {
+    private void initRows(TableLayout tableLayout, List<Auto> rows) {
+        for (Auto row : rows) {
             TableRow tableRow = new TableRow(this);
 
             // 1 col
             TextView textViewDischargeDate = new TextView(this);
             textViewDischargeDate.setHeight(100);
             textViewDischargeDate.setTextSize(16);
-            textViewDischargeDate.setText(row);
+            textViewDischargeDate.setText(String.valueOf(row.getId()));
             textViewDischargeDate.setTextColor(Color.WHITE);
             textViewDischargeDate.setGravity(Gravity.CENTER);
 
@@ -69,7 +100,7 @@ public class AutoActivity extends AppCompatActivity {
             TextView textViewReceivingDate = new TextView(this);
             textViewReceivingDate.setHeight(100);
             textViewReceivingDate.setTextSize(16);
-            textViewReceivingDate.setText(row);
+            textViewReceivingDate.setText(String.valueOf(row.getModel()));
             textViewReceivingDate.setTextColor(Color.WHITE);
             textViewReceivingDate.setGravity(Gravity.CENTER);
 
@@ -77,7 +108,7 @@ public class AutoActivity extends AppCompatActivity {
             TextView textViewSupplier = new TextView(this);
             textViewSupplier.setHeight(100);
             textViewSupplier.setTextSize(16);
-            textViewSupplier.setText(row);
+            textViewSupplier.setText(String.valueOf(row.getClientId()));
             textViewSupplier.setTextColor(Color.WHITE);
             textViewSupplier.setGravity(Gravity.CENTER);
 
@@ -99,6 +130,7 @@ public class AutoActivity extends AppCompatActivity {
         }
     }
 
+    // Inside AutoActivity
     private void selectRow(TableRow tableRow) {
         selectedRow = tableRow;
         for(int i = 0; i < tableLayoutFragment.getChildCount(); i++){
@@ -109,5 +141,13 @@ public class AutoActivity extends AppCompatActivity {
         }
         tableRow.setBackgroundColor(Color.parseColor("#FFBB86FC"));
 
+        // Extract auto ID from selected row
+        TextView idTextView = (TextView) tableRow.getChildAt(0);
+        int autoId = Integer.parseInt(idTextView.getText().toString());
+
+        // Pass auto ID to EditAutoActivity
+        Intent editAutoActivityIntent = new Intent(AutoActivity.this, EditAutoActivity.class);
+        editAutoActivityIntent.putExtra("AUTO_ID", autoId);
+        startActivity(editAutoActivityIntent);
     }
 }

@@ -18,18 +18,24 @@ public class AutoRepo {
     }
 
     // Метод для вставки автомобиля
-    public long addAuto(Auto auto) {
+    public void createAuto(Auto auto) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put("model", auto.getModel());
-        values.put("clientId", auto.getClientId());
-        long autoId = db.insert("Auto", null, values);
+        values.put(DbHelper.AUTOS_MODEL, auto.getModel());
+        values.put(DbHelper.AUTOS_CLIENT_ID, auto.getClientId());
+        /*long autoId = */db.insert(DbHelper.AUTOS_TABLE, null, values);
         db.close();
-        return autoId;
+//        return autoId;
+    }
+
+    public void deleteAuto(int autoId) {
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        db.delete(DbHelper.AUTOS_TABLE, DbHelper.ID + "=?", new String[]{String.valueOf(autoId)});
+        db.close();
     }
 
     // Метод для получения всех автомобилей клиента
-    public List<Auto> getAutosByClientId(int clientId) {
+    public List<Auto> findAutosByClientId(int clientId) {
         List<Auto> autos = new ArrayList<>();
         SQLiteDatabase db = dbHelper.getReadableDatabase();
 
@@ -51,5 +57,78 @@ public class AutoRepo {
         cursor.close();
         db.close();
         return autos;
+    }
+
+    // Метод для получения всех автомобилей
+    public List<Auto> findAllAutos() {
+        List<Auto> autos = new ArrayList<>();
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+
+        Cursor cursor = db.query(
+                DbHelper.AUTOS_TABLE,
+                new String[]{DbHelper.ID, DbHelper.AUTOS_MODEL, DbHelper.AUTOS_CLIENT_ID},
+                null, // Нет условия WHERE, т.е. выбрать все записи
+                null,
+                null,
+                null,
+                null);
+        if (cursor.moveToFirst()) {
+            do {
+                Auto auto = new Auto();
+                auto.setId(cursor.getInt(cursor.getColumnIndexOrThrow(DbHelper.ID)));
+                auto.setModel(cursor.getString(cursor.getColumnIndexOrThrow(DbHelper.AUTOS_MODEL)));
+                auto.setClientId(cursor.getInt(cursor.getColumnIndexOrThrow(DbHelper.AUTOS_CLIENT_ID)));
+                autos.add(auto);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return autos;
+    }
+
+    // Inside AutoRepo
+    public Auto findAutoById(int autoId) {
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+
+        Cursor cursor = db.query(
+                DbHelper.AUTOS_TABLE,
+                new String[]{DbHelper.AUTOS_MODEL, DbHelper.AUTOS_CLIENT_ID},
+                DbHelper.ID + "=?",
+                new String[]{String.valueOf(autoId)},
+                null, null, null);
+
+        Auto auto = null;
+        if (cursor.moveToFirst()) {
+            String model = cursor.getString(cursor.getColumnIndexOrThrow(DbHelper.AUTOS_MODEL));
+            int clientId = cursor.getInt(cursor.getColumnIndexOrThrow(DbHelper.AUTOS_CLIENT_ID));
+            auto = new Auto(autoId, model, clientId);
+        }
+        cursor.close();
+        db.close();
+        return auto;
+    }
+
+    public void editAuto(Auto auto) {
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(DbHelper.AUTOS_MODEL, auto.getModel());
+        values.put(DbHelper.AUTOS_CLIENT_ID, auto.getClientId());
+        db.update(DbHelper.AUTOS_TABLE, values, DbHelper.ID + "=?", new String[]{String.valueOf(auto.getId())});
+        db.close();
+    }
+
+    // Метод для проверки существования модели
+    public boolean isAutoModelExists(String model) {
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.query(
+                DbHelper.AUTOS_TABLE,
+                new String[]{DbHelper.ID},
+                String.format("%s=?", DbHelper.AUTOS_MODEL),
+                new String[]{model},
+                null, null, null);
+        boolean exists = cursor.getCount() > 0;
+        cursor.close();
+        db.close();
+        return exists;
     }
 }

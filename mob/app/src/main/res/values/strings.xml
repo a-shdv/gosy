@@ -1,16 +1,22 @@
 <resources>
+    <!--Main-->
     <string name="app_name">Mobile</string>
-
     <string name="button_move">Move</string>
     <string name="button_show">Show</string>
     <string name="button_client">Clients</string>
     <string name="button_auto">Autos</string>
 
+    <!--Auto-->
     <string name="button_add_auto">Add</string>
+    <string name="button_edit_auto">Edit</string>
+    <string name="button_delete_auto">Delete</string>
+    <string name="edit_text_auto_model">BMW</string>
+    <string name="edit_text_auto_client">1</string>
+    <string name="button_add_auto_ok">OK</string>
 
+    <!--Client-->
     <string name="button_add_client">Add</string>
-
+    <string name="button_delete_client">Delete</string>
     <string name="edit_text_client_name">Name</string>
     <string name="button_add_client_ok">OK</string>
-
 </resources>

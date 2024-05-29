@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.mob.R;
 import com.example.mob.entity.Client;
@@ -30,7 +31,12 @@ public class CreateClientActivity extends AppCompatActivity {
 
     private void createClientOkClickListener() {
         String name = editText.getText().toString();
-        clientRepo.addClient(new Client(name));
-        finish();
+        if (clientRepo.isClientNameExists(name)) {
+            Toast.makeText(this, "Client name already exists", Toast.LENGTH_SHORT).show();
+        } else {
+            clientRepo.addClient(new Client(name));
+            Toast.makeText(this, "Client created successfully", Toast.LENGTH_SHORT).show();
+            finish();
+        }
     }
 }

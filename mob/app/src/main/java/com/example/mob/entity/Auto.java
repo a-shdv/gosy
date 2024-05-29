@@ -8,6 +8,11 @@ public class Auto {
     public Auto() {
     }
 
+    public Auto(String model, int clientId) {
+        this.model = model;
+        this.clientId = clientId;
+    }
+
     public Auto(int id, String model, int clientId) {
         this.id = id;
         this.model = model;

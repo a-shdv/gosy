@@ -17,12 +17,47 @@ public class ClientRepo {
         dbHelper = new DbHelper(context);
     }
 
-    public void addClient(Client client) {
+    public boolean addClient(Client client) {
+        if (isClientNameExists(client.getName())) {
+            return false; // Имя клиента уже существует
+        }
+
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("name", client.getName());
-        /*long clientId =*/ db.insert(DbHelper.CLIENTS_TABLE, null, values);
+        db.insert(DbHelper.CLIENTS_TABLE, null, values);
         db.close();
+        return true; // Клиент успешно добавлен
+    }
+
+    // Метод для проверки существования имени клиента
+    public boolean isClientNameExists(String name) {
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.query(
+                DbHelper.CLIENTS_TABLE,
+                new String[]{DbHelper.ID},
+                "name = ?",
+                new String[]{name},
+                null, null, null);
+        boolean exists = cursor.getCount() > 0;
+        cursor.close();
+        db.close();
+        return exists;
+    }
+
+    // Метод для проверки существования клиента по clientId
+    public boolean isClientExists(int clientId) {
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.query(
+                DbHelper.CLIENTS_TABLE,
+                new String[]{DbHelper.ID},
+                "id = ?",
+                new String[]{String.valueOf(clientId)},
+                null, null, null);
+        boolean exists = cursor.getCount() > 0;
+        cursor.close();
+        db.close();
+        return exists;
     }
 
     // Метод для получения всех клиентов
@@ -59,4 +94,10 @@ public class ClientRepo {
         return clients;
     }
 
+    // Метод для удаления клиента
+    public void deleteClient(int clientId) {
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        db.delete(DbHelper.CLIENTS_TABLE, "id = ?", new String[]{String.valueOf(clientId)});
+        db.close();
+    }
 }
