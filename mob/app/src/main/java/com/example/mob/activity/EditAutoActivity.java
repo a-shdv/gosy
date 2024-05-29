@@ -17,7 +17,6 @@ public class EditAutoActivity extends AppCompatActivity {
     private Button buttonEditAutoOk;
     private AutoRepo autoRepo;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

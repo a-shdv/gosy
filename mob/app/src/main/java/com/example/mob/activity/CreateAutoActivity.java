@@ -36,20 +36,26 @@ public class CreateAutoActivity extends AppCompatActivity {
 
     private void createAutoOkClickListener() {
         String model = editTextAutoModel.getText().toString();
-        int clientId;
-        try {
-            clientId = Integer.parseInt(editTextAutoClient.getText().toString());
-        } catch (NumberFormatException e) {
-            Toast.makeText(this, "Invalid client ID", Toast.LENGTH_SHORT).show();
-            return;
+        Integer clientId = null; // Изменили тип переменной на Integer и присвоили null по умолчанию
+        String clientIdInput = editTextAutoClient.getText().toString();
+
+        // Проверяем, было ли введено значение clientId
+        if (!clientIdInput.isEmpty()) {
+            try {
+                clientId = Integer.parseInt(clientIdInput);
+            } catch (NumberFormatException e) {
+                Toast.makeText(this, "Invalid client ID", Toast.LENGTH_SHORT).show();
+                return;
+            }
         }
 
-        if (!clientRepo.isClientExists(clientId)) {
-            Toast.makeText(this, "Client ID does not exist", Toast.LENGTH_SHORT).show();
-        } else {
+        // Проверяем, существует ли clientId в базе данных, если он был введен пользователем или по умолчанию (если clientId не был введен)
+        if (clientId == null || clientRepo.isClientExists(clientId)) {
             autoRepo.createAuto(new Auto(model, clientId));
             Toast.makeText(this, "Auto created successfully", Toast.LENGTH_SHORT).show();
             finish();
+        } else {
+            Toast.makeText(this, "Client ID does not exist", Toast.LENGTH_SHORT).show();
         }
     }
 }

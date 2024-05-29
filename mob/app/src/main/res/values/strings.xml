@@ -9,6 +9,7 @@
     <!--Auto-->
     <string name="button_add_auto">Add</string>
     <string name="button_edit_auto">Edit</string>
+    <string name="button_report_auto">Report</string>
     <string name="button_delete_auto">Delete</string>
     <string name="edit_text_auto_model">BMW</string>
     <string name="edit_text_auto_client">1</string>

@@ -22,10 +22,13 @@ import java.util.List;
 public class AutoActivity extends AppCompatActivity {
     private AutoRepo autoRepo;
     private Button buttonAddAuto;
-    private Button buttonEditAuto;
+    private Button buttonReportAuto;
     private Button buttonDeleteAuto;
     private TableLayout tableLayoutFragment;
     private TableRow selectedRow;
+    Integer deletedAuto = 0;
+
+    private static final String purple = "#FF6200EE";
 
     @Override
     protected void onResume() {
@@ -43,6 +46,9 @@ public class AutoActivity extends AppCompatActivity {
         buttonAddAuto = findViewById(R.id.button_add_auto);
         buttonAddAuto.setOnClickListener(event -> addAutoClickListener());
 
+        buttonReportAuto = findViewById(R.id.button_report_auto);
+        buttonReportAuto.setOnClickListener(event -> reportAutoClickListener());
+
         buttonDeleteAuto = findViewById(R.id.button_delete_auto);
         buttonDeleteAuto.setOnClickListener(event -> deleteAutoClickListener());
     }
@@ -52,6 +58,19 @@ public class AutoActivity extends AppCompatActivity {
         startActivity(createAutoActivity);
     }
 
+    // Метод для обработки нажатий на кнопку "Edit"
+    public void editAutoClickListener(int autoId) {
+        // Перенос логики редактирования auto в этот метод
+        Intent editAutoActivityIntent = new Intent(AutoActivity.this, EditAutoActivity.class);
+        editAutoActivityIntent.putExtra("AUTO_ID", autoId);
+        startActivity(editAutoActivityIntent);
+    }
+    private void reportAutoClickListener(){
+        Intent reportAutoActivity = new Intent(AutoActivity.this, ReportActivity.class);
+        reportAutoActivity.putExtra("DELETED_AUTO", deletedAuto);
+        startActivity(reportAutoActivity);
+    }
+
     private void deleteAutoClickListener() {
         if (selectedRow != null) {
             TextView idTextView = (TextView) selectedRow.getChildAt(0);
@@ -59,6 +78,7 @@ public class AutoActivity extends AppCompatActivity {
             autoRepo.deleteAuto(autoId);
             // After deleting, you may want to refresh the table
             fillTable(Arrays.asList("ID", "Model", "Client"), autoRepo.findAllAutos());
+            deletedAuto++;
         }
     }
 
@@ -80,7 +100,7 @@ public class AutoActivity extends AppCompatActivity {
             textView.setWidth((int) (getWindowManager().getDefaultDisplay().getWidth() / 3.2));
             tableColumns.addView(textView);
         }
-        tableColumns.setBackgroundColor(Color.parseColor("#FF6200EE"));
+        tableColumns.setBackgroundColor(Color.parseColor(purple));
         tableLayout.addView(tableColumns);
     }
 
@@ -112,20 +132,21 @@ public class AutoActivity extends AppCompatActivity {
             textViewSupplier.setTextColor(Color.WHITE);
             textViewSupplier.setGravity(Gravity.CENTER);
 
-            // 4 col
-//            TextView textViewId = new TextView(this);
-//            textViewId.setVisibility(View.INVISIBLE);
-//            textViewId.setText(String.valueOf(receipt.getId()));
+            // 4 col - кнопка "Edit"
+            Button buttonEdit = new Button(this);
+            buttonEdit.setText("Edit");
+            buttonEdit.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT));
+            buttonEdit.setOnClickListener(v -> editAutoClickListener(row.getId()));
 
             // Visuals (row background color, selection)
-            tableRow.setBackgroundColor(Color.parseColor("#FF6200EE"));
+            tableRow.setBackgroundColor(Color.parseColor(purple));
             tableRow.setOnClickListener(event -> selectRow(tableRow));
 
             // Add elements to row
             tableRow.addView(textViewDischargeDate);
             tableRow.addView(textViewReceivingDate);
             tableRow.addView(textViewSupplier);
-//            tableRow.addView(textViewId);
+            tableRow.addView(buttonEdit);
             tableLayout.addView(tableRow);
         }
     }
@@ -136,18 +157,14 @@ public class AutoActivity extends AppCompatActivity {
         for(int i = 0; i < tableLayoutFragment.getChildCount(); i++){
             View view = tableLayoutFragment.getChildAt(i);
             if (view instanceof TableRow){
-                view.setBackgroundColor(Color.parseColor("#FF6200EE"));
+                view.setBackgroundColor(Color.parseColor(purple));
             }
         }
         tableRow.setBackgroundColor(Color.parseColor("#FFBB86FC"));
 
-        // Extract auto ID from selected row
-        TextView idTextView = (TextView) tableRow.getChildAt(0);
-        int autoId = Integer.parseInt(idTextView.getText().toString());
-
-        // Pass auto ID to EditAutoActivity
-        Intent editAutoActivityIntent = new Intent(AutoActivity.this, EditAutoActivity.class);
-        editAutoActivityIntent.putExtra("AUTO_ID", autoId);
-        startActivity(editAutoActivityIntent);
+//        // Pass auto ID to EditAutoActivity
+//        Intent editAutoActivityIntent = new Intent(AutoActivity.this, EditAutoActivity.class);
+//        editAutoActivityIntent.putExtra("AUTO_ID", autoId);
+//        startActivity(editAutoActivityIntent);
     }
 }

@@ -3,17 +3,17 @@ package com.example.mob.entity;
 public class Auto {
     private int id;
     private String model;
-    private int clientId;
+    private Integer clientId; // Изменили тип с int на Integer
 
     public Auto() {
     }
 
-    public Auto(String model, int clientId) {
+    public Auto(String model, Integer clientId) { // Изменили тип с int на Integer
         this.model = model;
         this.clientId = clientId;
     }
 
-    public Auto(int id, String model, int clientId) {
+    public Auto(int id, String model, Integer clientId) { // Изменили тип с int на Integer
         this.id = id;
         this.model = model;
         this.clientId = clientId;
@@ -35,11 +35,11 @@ public class Auto {
         this.model = model;
     }
 
-    public int getClientId() {
+    public Integer getClientId() { // Изменили тип с int на Integer
         return clientId;
     }
 
-    public void setClientId(int clientId) {
+    public void setClientId(Integer clientId) { // Изменили тип с int на Integer
         this.clientId = clientId;
     }
 }

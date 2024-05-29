@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e5ca5dbe-1265-4834-968e-182b3df5e1a0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mob/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../mob/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mob/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../mob/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mob/app/src/main/java/com/example/mob/activity/AutoActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mob/app/src/main/java/com/example/mob/activity/AutoActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mob/app/src/main/res/layout/activity_auto.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../mob/app/src/main/res/layout/activity_auto.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mob/app/src/main/res/values-ru/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../mob/app/src/main/res/values-ru/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mob/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../mob/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,6 +118,7 @@
       <workItem from="1716905688603" duration="1943000" />
       <workItem from="1716917137709" duration="599000" />
       <workItem from="1716934473652" duration="2000" />
+      <workItem from="1716995104239" duration="165000" />
     </task>
     <servers />
   </component>

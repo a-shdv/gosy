@@ -17,16 +17,19 @@ public class AutoRepo {
         dbHelper = new DbHelper(context);
     }
 
-    // Метод для вставки автомобиля
     public void createAuto(Auto auto) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(DbHelper.AUTOS_MODEL, auto.getModel());
-        values.put(DbHelper.AUTOS_CLIENT_ID, auto.getClientId());
-        /*long autoId = */db.insert(DbHelper.AUTOS_TABLE, null, values);
+        if (auto.getClientId() != null) {
+            values.put(DbHelper.AUTOS_CLIENT_ID, auto.getClientId());
+        } else {
+            values.putNull(DbHelper.AUTOS_CLIENT_ID);
+        }
+        db.insert(DbHelper.AUTOS_TABLE, null, values);
         db.close();
-//        return autoId;
     }
+
 
     public void deleteAuto(int autoId) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
@@ -45,6 +48,58 @@ public class AutoRepo {
                 String.format("%s=?", DbHelper.AUTOS_CLIENT_ID),
                 new String[]{String.valueOf(clientId)},
                 null, null, null);
+        if (cursor.moveToFirst()) {
+            do {
+                Auto auto = new Auto();
+                auto.setId(cursor.getInt(cursor.getColumnIndexOrThrow(DbHelper.ID)));
+                auto.setModel(cursor.getString(cursor.getColumnIndexOrThrow(DbHelper.AUTOS_MODEL)));
+                auto.setClientId(cursor.getInt(cursor.getColumnIndexOrThrow(DbHelper.AUTOS_CLIENT_ID)));
+                autos.add(auto);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return autos;
+    }
+
+    public List<Auto> findAllAutosWithClientId() {
+        List<Auto> autos = new ArrayList<>();
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+
+        Cursor cursor = db.query(
+                DbHelper.AUTOS_TABLE,
+                new String[]{DbHelper.ID, DbHelper.AUTOS_MODEL, DbHelper.AUTOS_CLIENT_ID},
+                String.format("%s IS NOT NULL", DbHelper.AUTOS_CLIENT_ID),
+                null,
+                null,
+                null,
+                null);
+        if (cursor.moveToFirst()) {
+            do {
+                Auto auto = new Auto();
+                auto.setId(cursor.getInt(cursor.getColumnIndexOrThrow(DbHelper.ID)));
+                auto.setModel(cursor.getString(cursor.getColumnIndexOrThrow(DbHelper.AUTOS_MODEL)));
+                auto.setClientId(cursor.getInt(cursor.getColumnIndexOrThrow(DbHelper.AUTOS_CLIENT_ID)));
+                autos.add(auto);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return autos;
+    }
+
+    public List<Auto> findAllAutosWithClientIdZero() {
+        List<Auto> autos = new ArrayList<>();
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+
+        Cursor cursor = db.query(
+                DbHelper.AUTOS_TABLE,
+                new String[]{DbHelper.ID, DbHelper.AUTOS_MODEL, DbHelper.AUTOS_CLIENT_ID},
+                String.format("%s IS NULL", DbHelper.AUTOS_CLIENT_ID), // Check for null values
+                null,
+                null,
+                null,
+                null);
         if (cursor.moveToFirst()) {
             do {
                 Auto auto = new Auto();
@@ -85,6 +140,8 @@ public class AutoRepo {
         db.close();
         return autos;
     }
+
+
 
     // Inside AutoRepo
     public Auto findAutoById(int autoId) {
