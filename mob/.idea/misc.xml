@@ -3,9 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/a-shdv/Desktop/gosy/mob/app/src/main/res/layout-land/activity_auto.xml" value="0.31040564373897706" />
+        <entry key="..\:/Users/a-shdv/Desktop/gosy/mob/app/src/main/res/layout-land/activity_client.xml" value="0.31040564373897706" />
+        <entry key="..\:/Users/a-shdv/Desktop/gosy/mob/app/src/main/res/layout-land/activity_create_auto.xml" value="0.31040564373897706" />
+        <entry key="..\:/Users/a-shdv/Desktop/gosy/mob/app/src/main/res/layout-land/activity_create_client.xml" value="0.31040564373897706" />
+        <entry key="..\:/Users/a-shdv/Desktop/gosy/mob/app/src/main/res/layout-land/activity_edit_auto.xml" value="0.31040564373897706" />
+        <entry key="..\:/Users/a-shdv/Desktop/gosy/mob/app/src/main/res/layout-land/activity_main.xml" value="0.31040564373897706" />
+        <entry key="..\:/Users/a-shdv/Desktop/gosy/mob/app/src/main/res/layout-land/activity_report.xml" value="0.31040564373897706" />
         <entry key="..\:/Users/a-shdv/Desktop/gosy/mob/app/src/main/res/layout/activity_auto.xml" value="0.22474747474747475" />
         <entry key="..\:/Users/a-shdv/Desktop/gosy/mob/app/src/main/res/layout/activity_client.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/a-shdv/Desktop/gosy/mob/app/src/main/res/layout/activity_create_auto.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/a-shdv/Desktop/gosy/mob/app/src/main/res/layout/activity_create_auto.xml" value="0.3005050505050505" />
         <entry key="..\:/Users/a-shdv/Desktop/gosy/mob/app/src/main/res/layout/activity_create_client.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/a-shdv/Desktop/gosy/mob/app/src/main/res/layout/activity_edit_auto.xml" value="0.3005050505050505" />
         <entry key="..\:/Users/a-shdv/Desktop/gosy/mob/app/src/main/res/layout/activity_main.xml" value="0.35260416666666666" />
