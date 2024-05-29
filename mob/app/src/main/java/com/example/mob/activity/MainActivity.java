@@ -17,7 +17,8 @@ public class MainActivity extends AppCompatActivity {
     private Fragment lastFragment = new SecondFragment(); // initial value
     private Button buttonMove;
     private Button buttonShow;
-    private Button buttonTask;
+    private Button buttonClient;
+    private Button buttonAuto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +31,11 @@ public class MainActivity extends AppCompatActivity {
         buttonShow = findViewById(R.id.button_show);
         buttonShow.setOnClickListener(event -> showClickListener());
 
-        buttonTask = findViewById(R.id.button_task);
-        buttonTask.setOnClickListener(event -> taskClickListener());
+        buttonClient = findViewById(R.id.button_client);
+        buttonClient.setOnClickListener(event -> clientClickListener());
+
+        buttonAuto = findViewById(R.id.button_auto);
+        buttonAuto.setOnClickListener(event -> autoClickListener());
     }
 
     // Переход между Activity
@@ -58,8 +62,13 @@ public class MainActivity extends AppCompatActivity {
         ft.commit();
     }
 
-    public void taskClickListener() {
-        Intent taskActivity = new Intent(MainActivity.this, TaskActivity.class);
-        startActivity(taskActivity);
+    public void clientClickListener() {
+        Intent clientActivity = new Intent(MainActivity.this, ClientActivity.class);
+        startActivity(clientActivity);
+    }
+
+    public void autoClickListener() {
+        Intent autoActivity = new Intent(MainActivity.this, AutoActivity.class);
+        startActivity(autoActivity);
     }
 }

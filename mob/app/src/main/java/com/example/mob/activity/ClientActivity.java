@@ -1,39 +1,53 @@
 package com.example.mob.activity;
 
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.example.mob.R;
+import com.example.mob.entity.Client;
+import com.example.mob.repo.ClientRepo;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class TaskActivity extends AppCompatActivity {
+public class ClientActivity extends AppCompatActivity {
     private TableLayout tableLayoutFragment;
     private TableRow selectedRow;
+    private Button buttonAddClient;
+    private ClientRepo clientRepo;
 
     @Override
     protected void onResume() {
         super.onResume();
-        fillTable(Arrays.asList("Дата назначения", "Дата получения", "Имя поставщика"), Arrays.asList("asf", "gfa", "sad"));
+        fillTable(Arrays.asList("ID", "Name"), clientRepo.findAll());
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_task);
+        setContentView(R.layout.activity_client);
+
+        clientRepo = new ClientRepo(this);
+
+        buttonAddClient = findViewById(R.id.button_add_client);
+        buttonAddClient.setOnClickListener(event -> addClientClickListener());
     }
 
-    private void fillTable(List<String> columns, List<String> rows) {
+    private void addClientClickListener() {
+        Intent createClientActivity = new Intent(ClientActivity.this, CreateClientActivity.class);
+        startActivity(createClientActivity);
+    }
+
+    private void fillTable(List<String> columns, List<Client> rows) {
         tableLayoutFragment = findViewById(R.id.table_layout_fragment);
         tableLayoutFragment.removeAllViews();
         initColumns(tableLayoutFragment, columns);
@@ -55,15 +69,15 @@ public class TaskActivity extends AppCompatActivity {
         tableLayout.addView(tableColumns);
     }
 
-    private void initRows(TableLayout tableLayout, List<String> rows) {
-        for (String row : rows) {
+    private void initRows(TableLayout tableLayout, List<Client> rows) {
+        for (Client row : rows) {
             TableRow tableRow = new TableRow(this);
 
             // 1 col
             TextView textViewDischargeDate = new TextView(this);
             textViewDischargeDate.setHeight(100);
             textViewDischargeDate.setTextSize(16);
-            textViewDischargeDate.setText(row);
+            textViewDischargeDate.setText(String.valueOf(row.getId()));
             textViewDischargeDate.setTextColor(Color.WHITE);
             textViewDischargeDate.setGravity(Gravity.CENTER);
 
@@ -71,22 +85,9 @@ public class TaskActivity extends AppCompatActivity {
             TextView textViewReceivingDate = new TextView(this);
             textViewReceivingDate.setHeight(100);
             textViewReceivingDate.setTextSize(16);
-            textViewReceivingDate.setText(row);
+            textViewReceivingDate.setText(String.valueOf(row.getName()));
             textViewReceivingDate.setTextColor(Color.WHITE);
             textViewReceivingDate.setGravity(Gravity.CENTER);
-
-            // 3 col
-            TextView textViewSupplier = new TextView(this);
-            textViewSupplier.setHeight(100);
-            textViewSupplier.setTextSize(16);
-            textViewSupplier.setText(row);
-            textViewSupplier.setTextColor(Color.WHITE);
-            textViewSupplier.setGravity(Gravity.CENTER);
-
-            // 4 col
-//            TextView textViewId = new TextView(this);
-//            textViewId.setVisibility(View.INVISIBLE);
-//            textViewId.setText(String.valueOf(receipt.getId()));
 
             // Visuals (row background color, selection)
             tableRow.setBackgroundColor(Color.parseColor("#FF6200EE"));
@@ -95,8 +96,6 @@ public class TaskActivity extends AppCompatActivity {
             // Add elements to row
             tableRow.addView(textViewDischargeDate);
             tableRow.addView(textViewReceivingDate);
-            tableRow.addView(textViewSupplier);
-//            tableRow.addView(textViewId);
             tableLayout.addView(tableRow);
         }
     }

@@ -1,6 +1,14 @@
 <resources>
     <string name="app_name">Мобилки</string>
-    <string name="move_button">Перейти</string>
-    <string name="show_button">Показать</string>
-    <string name="button_task">Задание</string>
+    <string name="button_move">Перейти</string>
+    <string name="button_show">Показать</string>
+    <string name="button_client">Клиенты</string>
+    <string name="button_auto">Автомобили</string>
+
+    <string name="button_add_auto">Добавить</string>
+
+    <string name="button_add_client">Добавить</string>
+    <string name="edit_text_client_name">Имя</string>
+
+    <string name="button_add_client_ok">ОК</string>
 </resources>

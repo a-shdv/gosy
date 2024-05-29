@@ -11,21 +11,29 @@
         android:id="@+id/button_show"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:text="@string/show_button" />
+        android:text="@string/button_show" />
 
     <Button
         android:id="@+id/button_move"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
-        android:text="@string/move_button" />
+        android:text="@string/button_move" />
 
     <Button
-        android:id="@+id/button_task"
+        android:id="@+id/button_client"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
-        android:text="@string/button_task" />
+
+        android:text="@string/button_client" />
+
+    <Button
+        android:id="@+id/button_auto"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/button_auto" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_test"
