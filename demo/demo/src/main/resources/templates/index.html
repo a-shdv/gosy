@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" th:href="@{${@environment.getProperty('spring.application.favicon')}}">
+    <link rel="stylesheet" th:href="@{${@environment.getProperty('spring.application.styles')}}">
+    <title th:text=" ${@environment.getProperty('spring.application.name')} + ' - Главная' "></title>
+    <script src="/js/index.js" defer></script>
+</head>
+<body>
+<div th:replace="~{partials/header :: header}"></div>
+
+<div id="main">
+    <div id="asside">
+        <form method="post">
+            <div>
+                <input type="text" name="login" placeholder="логин"/>
+            </div>
+            <div>
+                <input type="password" name="password" placeholder="пароль"/>
+            </div>
+            <div>
+                <button type="submit">Войти</button>
+            </div>
+        </form>
+    </div>
+    <!-- university -->
+    <div id="index">
+        <div>
+            <!-- Форма отправки запроса для получения расписания -->
+            <form id="room-timetable-form" action="">
+                <input type="text" placeholder="Аудитория" name="room">
+                <button>Построить расписание аудитории</button>
+            </form>
+
+            <!-- Расписание -->
+            <div id="timetable-wrapper"></div>
+
+            <!-- Кнопка для получения списка групп -->
+            <button id="fetch-groups-button">Получить список групп</button>
+
+            <!-- Список групп -->
+            <div id="groups-wrapper"></div>
+
+            <!-- Кнопка для получения списка аудиторий -->
+            <button id="fetch-rooms-button">Получить список аудиторий</button>
+
+            <!-- Список аудиторий -->
+            <div id="rooms-wrapper"></div>
+
+            <!-- Кнопка для получения списка преподавателей -->
+            <button id="fetch-teachers-button">Получить список преподавателей</button>
+
+            <!-- Список преподавателей -->
+            <div id="teachers-wrapper"></div>
+
+            <!-- Форма отправки запроса для получения расписания группы -->
+            <form id="group-timetable-form" action="">
+                <input type="text" placeholder="Группа" name="group">
+                <button>Построить расписание группы</button>
+            </form>
+
+            <!-- Расписание группы -->
+            <div id="group-timetable-wrapper"></div>
+
+            <!-- Форма отправки запроса для получения расписания преподавателя -->
+            <form id="teacher-timetable-form" action="">
+                <input type="text" placeholder="Преподаватель" name="teacher">
+                <button>Построить расписание преподавателя</button>
+            </form>
+
+            <!-- Расписание преподавателя -->
+            <div id="teacher-timetable-wrapper"></div>
+
+            <!-- Форма отправки запроса для получения данных о погоде -->
+            <form id="weather-form" method="get">
+                <input type="text" placeholder="Широта" name="lattitude">
+                <input type="text" placeholder="Долгота" name="longitude">
+                <button>Получить погоду</button>
+            </form>
+
+            <!-- Погода -->
+            <div id="weather-wrapper"></div>
+        </div>
+
+        <!--weather-->
+        <!--<div id="index">
+            <button id="get_weather">Получить список</button>
+            <div id="table_with_info"></div>
+            <table>
+                <tr>
+                    <th>Название 1</th>
+                    <th>Название 2</th>
+                    <th>Название 3</th>
+                </tr>
+                <tr>
+                    <td>test</td>
+                    <td>test</td>
+                    <td>test</td>
+                </tr>
+                <tr>
+                    <td>test</td>
+                    <td>test</td>
+                    <td>test</td>
+                </tr>
+                <tr>
+                    <td>test</td>
+                    <td>test</td>
+                    <td>test</td>
+                </tr>
+            </table>
+
+            <ul>
+                <li>test</li>
+                <li>test</li>
+                <li>test</li>
+                <li>test</li>
+                <li>test</li>
+            </ul>
+
+            <ol>
+                <li>test</li>
+                <li>test</li>
+                <li>test</li>
+                <li>test</li>
+                <li>test</li>
+            </ol>
+        </div>-->
+    </div>
+</div>
+<div th:replace="~{partials/footer :: footer}"></div>
+</body>
+</html>

@@ -1,0 +1,269 @@
+// Ждём, когда DOM полностью загрузится
+document.addEventListener("DOMContentLoaded", () => {
+
+    // Обработчик формы получения расписания по аудитории
+    document.getElementById("room-timetable-form").addEventListener("submit", async (event) => {
+        event.preventDefault(); // Предотвращаем отправку формы по умолчанию
+        const formData = new FormData(event.target); // Получаем данные формы
+        const response = await fetch("https://vm.nathoro.ru/timetable/by-room/" + encodeURIComponent(formData.get("room"))); // Отправляем запрос
+        const data = await response.json(); // Парсим JSON ответ
+
+        console.log(data); // Логируем данные для отладки
+
+        const wrapper = document.getElementById("timetable-wrapper");
+        renderWeek(data[0], wrapper); // Отображаем первую неделю
+        renderWeek(data[1], wrapper); // Отображаем вторую неделю
+    });
+
+    // Обработчик кнопки для получения списка групп
+    document.getElementById("fetch-groups-button").addEventListener("click", fetchGroups);
+
+    // Обработчик кнопки для получения списка аудиторий
+    document.getElementById("fetch-rooms-button").addEventListener("click", fetchRooms);
+
+    // Обработчик кнопки для получения списка преподавателей
+    document.getElementById("fetch-teachers-button").addEventListener("click", fetchTeachers);
+
+    // Обработчик формы получения расписания по группе
+    document.getElementById("group-timetable-form").addEventListener("submit", async (event) => {
+        event.preventDefault(); // Предотвращаем отправку формы по умолчанию
+        const formData = new FormData(event.target); // Получаем данные формы
+        const response = await fetch("https://vm.nathoro.ru/timetable/by-group/" + encodeURIComponent(formData.get("group"))); // Отправляем запрос
+        const data = await response.json(); // Парсим JSON ответ
+
+        console.log(data); // Логируем данные для отладки
+
+        const wrapper = document.getElementById("group-timetable-wrapper");
+        renderGroupTimetable(data, wrapper); // Отображаем расписание группы
+    });
+
+    // Обработчик формы получения расписания по преподавателю
+    document.getElementById("teacher-timetable-form").addEventListener("submit", async (event) => {
+        event.preventDefault(); // Предотвращаем отправку формы по умолчанию
+        const formData = new FormData(event.target); // Получаем данные формы
+        const response = await fetch("https://vm.nathoro.ru/timetable/by-teacher/" + encodeURIComponent(formData.get("teacher"))); // Отправляем запрос
+        const data = await response.json(); // Парсим JSON ответ
+
+        console.log(data); // Логируем данные для отладки
+
+        const wrapper = document.getElementById("teacher-timetable-wrapper");
+        renderTeacherTimetable(data, wrapper); // Отображаем расписание преподавателя
+    });
+
+    // Обработчик формы получения данных о погоде
+    document.getElementById("weather-form").addEventListener("submit", async (event) => {
+        event.preventDefault(); // Предотвращаем отправку формы по умолчанию
+        const formData = new FormData(event.target); // Получаем данные формы
+        const latitude = encodeURIComponent(formData.get("latitude")); // Кодируем широту
+        const longitude = encodeURIComponent(formData.get("longitude")); // Кодируем долготу
+        const response = await fetch(`https://vm.nathoro.ru/weather?latitude=${latitude}&longitude=${longitude}`); // Отправляем запрос
+        const data = await response.json(); // Парсим JSON ответ
+
+        console.log(data); // Логируем данные для отладки
+
+        const wrapper = document.getElementById("weather-wrapper");
+        renderWeather(data, wrapper); // Отображаем данные о погоде
+    });
+});
+
+// Функция для получения списка групп
+async function fetchGroups() {
+    const response = await fetch("https://vm.nathoro.ru/timetable/groups");
+    const data = await response.json(); // Парсим JSON ответ
+
+    console.log(data); // Логируем данные для отладки
+
+    const wrapper = document.getElementById("groups-wrapper");
+    renderGroups(data, wrapper); // Отображаем список групп
+}
+
+// Функция для получения списка аудиторий
+async function fetchRooms() {
+    const response = await fetch("https://vm.nathoro.ru/timetable/rooms");
+    const data = await response.json(); // Парсим JSON ответ
+
+    console.log(data); // Логируем данные для отладки
+
+    const wrapper = document.getElementById("rooms-wrapper");
+    renderRooms(data, wrapper); // Отображаем список аудиторий
+}
+
+// Функция для получения списка преподавателей
+async function fetchTeachers() {
+    const response = await fetch("https://vm.nathoro.ru/timetable/teachers");
+    const data = await response.json(); // Парсим JSON ответ
+
+    console.log(data); // Логируем данные для отладки
+
+    const wrapper = document.getElementById("teachers-wrapper");
+    renderTeachers(data, wrapper); // Отображаем список преподавателей
+}
+
+// Функция для отображения списка групп
+function renderGroups(data, wrapper) {
+    wrapper.innerHTML = ""; // Очищаем предыдущий контент
+
+    const ul = document.createElement("ul"); // Создаём список
+
+    data.forEach(group => {
+        const li = document.createElement("li");
+        li.textContent = group.name; // Заполняем элемент списка
+        ul.appendChild(li);
+    });
+
+    wrapper.appendChild(ul); // Добавляем список в контейнер
+}
+
+// Функция для отображения списка аудиторий
+function renderRooms(data, wrapper) {
+    wrapper.innerHTML = ""; // Очищаем предыдущий контент
+
+    const ul = document.createElement("ul"); // Создаём список
+
+    data.forEach(room => {
+        const li = document.createElement("li");
+        li.textContent = room.name; // Заполняем элемент списка
+        ul.appendChild(li);
+    });
+
+    wrapper.appendChild(ul); // Добавляем список в контейнер
+}
+
+// Функция для отображения списка преподавателей
+function renderTeachers(data, wrapper) {
+    wrapper.innerHTML = ""; // Очищаем предыдущий контент
+
+    const ul = document.createElement("ul"); // Создаём список
+
+    data.forEach(teacher => {
+        const li = document.createElement("li");
+        li.textContent = teacher.fullName; // Заполняем элемент списка
+        ul.appendChild(li);
+    });
+
+    wrapper.appendChild(ul); // Добавляем список в контейнер
+}
+
+// Функция для отображения расписания недели
+function renderWeek(data, wrapper) {
+    wrapper.innerHTML = ""; // Очищаем предыдущий контент
+
+    const table = document.createElement("table");
+    table.innerHTML = `
+        <tr>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+            <th>4</th>
+            <th>5</th>
+            <th>6</th>
+            <th>7</th>
+            <th>8</th>
+        </tr>
+    `; // Создаём заголовок таблицы
+
+    data.days.forEach(day => {
+        const week = document.createElement('tr');
+        day.lessons.forEach(lesson => {
+            if (lesson === null) {
+                week.innerHTML += `<td class="slot-empty">----</td>`; // Заполняем пустые слоты
+            } else {
+                week.innerHTML += `<td class="slot-full">${lesson.subject.name} (${lesson.subject.type})<br>${lesson.room.name}<br>${lesson.subject.teacher.fullName}</td>`; // Заполняем слоты занятиями
+            }
+        });
+        table.append(week); // Добавляем строку в таблицу
+    });
+
+    wrapper.append(table); // Добавляем таблицу в контейнер
+}
+
+// Функция для отображения расписания группы
+function renderGroupTimetable(data, wrapper) {
+    wrapper.innerHTML = ""; // Очищаем предыдущий контент
+
+    data.forEach((week, index) => {
+        const table = document.createElement("table");
+        table.innerHTML = `
+            <caption>${week.isOdd ? "Odd Week" : "Even Week"}</caption>
+            <tr>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+                <th>5</th>
+                <th>6</th>
+                <th>7</th>
+                <th>8</th>
+            </tr>
+        `; // Создаём заголовок таблицы
+
+        week.days.forEach(day => {
+            const weekRow = document.createElement('tr');
+            day.lessons.forEach(lesson => {
+                if (lesson === null) {
+                    weekRow.innerHTML += `<td class="slot-empty">----</td>`; // Заполняем пустые слоты
+                } else {
+                    weekRow.innerHTML += `<td class="slot-full">${lesson.subject.name} (${lesson.subject.type})<br>${lesson.room.name}<br>${lesson.subject.teacher.fullName}</td>`; // Заполняем слоты занятиями
+                }
+            });
+            table.append(weekRow); // Добавляем строку в таблицу
+        });
+
+        wrapper.append(table); // Добавляем таблицу в контейнер
+});
+}
+
+// Функция для отображения расписания преподавателя
+function renderTeacherTimetable(data, wrapper) {
+wrapper.innerHTML = ""; // Очищаем предыдущий контент
+data.forEach((week, index) => {
+    const table = document.createElement("table");
+    table.innerHTML = `
+        <caption>${week.isOdd ? "Нечётная неделя" : "Чётная неделя"}</caption>
+        <tr>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+            <th>4</th>
+            <th>5</th>
+            <th>6</th>
+            <th>7</th>
+            <th>8</th>
+        </tr>
+    `; // Создаём заголовок таблицы
+
+    week.days.forEach(day => {
+        const weekRow = document.createElement('tr');
+        day.lessons.forEach(lesson => {
+            if (lesson === null) {
+                weekRow.innerHTML += `<td class="slot-empty">----</td>`; // Заполняем пустые слоты
+            } else {
+                weekRow.innerHTML += `<td class="slot-full">${lesson.subject.name} (${lesson.subject.type})<br>${lesson.group.name}<br>${lesson.room.name}</td>`; // Заполняем слоты занятиями
+            }
+        });
+        table.append(weekRow); // Добавляем строку в таблицу
+    });
+
+    wrapper.append(table); // Добавляем таблицу в контейнер
+});
+
+}
+// Функция для отображения данных о погоде
+function renderWeather(data, wrapper) {
+wrapper.innerHTML = ""; // Очищаем предыдущий контент
+data.forEach(weather => {
+    const weatherDiv = document.createElement("div");
+    weatherDiv.classList.add("weather-slot");
+    weatherDiv.innerHTML = `
+        <p><strong>Местоположение:</strong> ${weather.location}</p>
+        <p><strong>Дата:</strong> ${new Date(weather.date).toLocaleString()}</p>
+        <p><strong>Температура:</strong> ${weather.temperature.toFixed(2)}°C</p>
+        <p><strong>Направление ветра:</strong> ${weather.windDirection}</p>
+        <p><strong>Скорость ветра:</strong> ${weather.windSpeed.toFixed(2)} м/с</p>
+        <p><strong>Влажность:</strong> ${weather.humidity.toFixed(2)}%</p>
+    `;
+    wrapper.appendChild(weatherDiv); // Добавляем блок с данными о погоде в контейнер
+});
+}
+
+

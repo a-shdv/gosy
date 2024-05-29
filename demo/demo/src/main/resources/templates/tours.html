@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" th:href="@{${@environment.getProperty('spring.application.favicon')}}">
+    <!-- from application.yaml -->
+    <link rel="stylesheet" th:href="@{${@environment.getProperty('spring.application.styles')}}">
+    <!-- from application.yaml -->
+    <title th:text=" ${@environment.getProperty('spring.application.name')} + ' - Турниры' "></title>
+</head>
+<body>
+<!-- Header -->
+<div th:replace="~{partials/header :: header}"></div>
+
+<!-- Main -->
+<div id="main">
+    <!-- Table -->
+    <table>
+        <!-- Table header -->
+        <thead>
+        <tr>
+            <th>Header 1</th>
+            <th>Header 2</th>
+        </tr>
+        </thead>
+
+        <!-- Table body -->
+        <tbody>
+        <tr>
+            <td rowspan="2">1</td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td colspan="2">3</td>
+        </tr>
+        <tr>
+            <td>4</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Footer -->
+<div th:replace="~{partials/footer :: footer}"></div>
+</body>
+</html>

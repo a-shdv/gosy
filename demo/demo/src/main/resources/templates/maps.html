@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" th:href="@{${@environment.getProperty('spring.application.favicon')}}">
+    <!-- from application.yaml -->
+    <link rel="stylesheet" th:href="@{${@environment.getProperty('spring.application.styles')}}">
+    <!-- from application.yaml -->
+    <title th:text=" ${@environment.getProperty('spring.application.name')} + ' - Карточки' "></title>
+</head>
+<body>
+<!-- Header -->
+<div th:replace="~{partials/header :: header}"></div>
+
+<!-- Main -->
+<div id="main">
+    <!-- Cards -->
+    <div id="content">
+        <div class="card">card 1</div>
+        <div class="card">card 2</div>
+        <div class="card">card 3</div>
+    </div>
+</div>
+
+<!-- Footer -->
+<div th:replace="~{partials/footer :: footer}"></div>
+</body>
+</html>
