@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">ExamApplication</string>
+
+    <string name="title">title</string>
+    <string name="description">description</string>
+    <string name="save">save</string>
+    <string name="filter">filter</string>
+    <string name="add">add</string>
+    <string name="no_doctor">No doctor</string>
+    <string name="count_users_in_hospital">Count of peoples in hospital: </string>
+    <string name="count_users_not_in_hospital">Count of peoples not in hospital: </string>
+    <string name="doctor_fio">Doctor fio: </string>
+    <string name="user_sick_status">Status: </string>
+    <string name="in_json">in json</string>
+    <string name="from_json">From Json</string>
+    <string name="fio_hint">FIO</string>
+    <string name="doctors_fio">Doctors fio</string>
+    <string name="in_hospital">In hospital</string>
+    <string name="not_in_hospital">Not in hospital</string>
+    <string name="fio">FIO:</string>
+</resources>

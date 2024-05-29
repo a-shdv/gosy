@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ExamApplication</string>
+    <string name="title">Заголовок</string>
+    <string name="description">Описание</string>
+    <string name="save">Сохранить</string>
+    <string name="filter">фильтр</string>
+    <string name="add">Добавить</string>
+    <string name="no_doctor">Лечащий врач отсутствует</string>
+    <string name="count_users_in_hospital">Количество людей в больнице: </string>
+    <string name="count_users_not_in_hospital">Количество выписанных людей: </string>
+    <string name="doctor_fio">Лечащий врач: </string>
+    <string name="user_sick_status">Статус: </string>
+    <string name="in_json">В json</string>
+    <string name="from_json">Из Json</string>
+    <string name="fio_hint">ФИО</string>
+    <string name="doctors_fio">ФИО доктора</string>
+    <string name="in_hospital">В больнице</string>
+    <string name="not_in_hospital">Выписан</string>
+    <string name="fio">ФИО:</string>
+</resources>

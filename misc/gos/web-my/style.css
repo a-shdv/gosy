@@ -1,0 +1,32 @@
+html,body{
+    height: 100%;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+#main{
+    display: flex;
+    flex-grow: 1;
+}
+
+#mainDiv{
+    flex-grow: 1;
+}
+
+div{
+    padding: 10px;
+    border:  1px solid black;
+}
+
+
+th,td {
+    border: 1px solid black;
+}
+
+.hot{
+    background-color: red;
+}

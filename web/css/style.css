@@ -1,0 +1,30 @@
+body {
+    background-color: cornsilk;
+}
+
+.card {
+    background-color: #fff;
+    margin: 5px;
+    padding: 5px;
+    font-size: 1.2em;
+    border: 1px solid black;
+    box-shadow: 0 0 5px #00000066;
+    flex-grow: 1;
+}
+
+#main {
+    flex-grow: 1;
+}
+
+#content {
+    display: flex;
+    /* flex-grow: 1; */
+}
+
+.slot-empty {
+    background-color: rgba(0, 255, 0, 0.2);
+}
+
+.slot-full {
+    background-color: rgba(255, 0, 0, 0.2);
+}

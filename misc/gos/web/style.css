@@ -1,0 +1,36 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+div {
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid red;
+}
+
+#mainWrapper {
+    display: flex;
+    flex-grow: 1;
+}
+
+#main {
+    flex-grow: 1;
+}
+
+td, th {
+    border: 1px solid #666;
+}
+
+.promoImg {
+    width: 100%;
+}
+
+li.cool {
+    color: green;
+}
